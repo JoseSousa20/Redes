@@ -1,0 +1,30 @@
+<?php
+ $a = 23;
+ $b = 45;
+ $soma = $a + $b;
+ echo "A soma é: $soma";
+ echo "<br>";
+ echo "<br>";
+ $nota1 = 20;
+ $nota2 = 15;
+ $nota3 = 19;
+ $media = ($nota1 + $nota2 + $nota3)/3;
+ echo "A média é: $media";
+ echo "<br>";
+ echo "<br>";
+ $x = 15;
+ $y = 29;
+ $resto = ($x % $y) / $y;
+ $divisao = round($x / $y);
+ echo "O quociente é: $divisao";
+ echo "<br>";
+ echo "<br>";
+ echo "O resto é: $resto";
+ echo "<br>";
+ echo "<br>";
+ $preco = 78;
+ $iva = 0.23;
+ $comiva = $preco * $iva;
+ $precocomiva = $preco + $comiva;
+ echo "O preço com IVA: $precocomiva";
+ ?>
