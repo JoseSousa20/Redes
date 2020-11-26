@@ -5,6 +5,8 @@
         }
         else if(is_numeric($n1)){
             echo "Numero é: ".$n1;
+        }else{
+            echo "ERRO";
         }
 
 ?>
