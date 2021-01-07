@@ -27,7 +27,7 @@
             $stm->close();
         ?>
         <br>
-        <a href="filmes_create.php">Adicionar livros</a>
+        <a href="filmes_create.php">Adicionar Filmes</a>
 <br>
     </body>
     </html>

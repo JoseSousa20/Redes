@@ -47,17 +47,17 @@
     <h1>Detalhes do filme</h1>
     <?php
 
-        if (isset($livro)){
+        if (isset($filme)){
             echo '<br>';
-            echo $livro['titulo'];
+            echo $filme['titulo'];
             echo '<br>';
-            echo $livro['sinopse'];
+            echo $filme['sinopse'];
             echo '<br>';
-            echo $livro['idioma'];
+            echo $filme['idioma'];
             echo '<br>';
-            echo $livro['data_lancamento'];
+            echo $filme['data_lancamento'];
             echo '<br>';
-            echo $livro['quantidade'];
+            echo $filme['quantidade'];
             echo '<br>';
         }
         else{
