@@ -40,6 +40,7 @@
     <html>
     <head>
     <meta charset="ISO-8859-1">
+    <meta charset="UTF-8">
     <title>Detalhes</title>
     </head>
     <body>
@@ -54,7 +55,7 @@
             echo '<br>';
             echo $livro['idioma'];
             echo '<br>';
-            echo $livro['data_nascimento'];
+            echo $livro['data_lancamento'];
             echo '<br>';
             echo $livro['quantidade'];
             echo '<br>';
