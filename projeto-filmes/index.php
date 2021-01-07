@@ -1,6 +1,6 @@
 <?php
     $con=new mysqli("localhost","root","","filmes");
-    if($con->connect_errno!=0){
+    if($con->connect_error!=0){
         echo "Ocorreu um erro no acesso à base de dados" .$con->connect_error;
         exit;
     }
@@ -31,5 +31,5 @@
     </html>
 
 <?php
-    } //end if-if($con->connect_errno!=0)
+    } //end if-if($con->connect_error!=0)
 ?>
