@@ -21,7 +21,7 @@
                 $stm->bind_param('i',$idFilme);
                 $stm->execute();
                 $res=$stm->get_result();
-                $livro=$res->fetch_assoc();
+                $filme=$res->fetch_assoc();
                 $stm->close();
             }
             else{
@@ -49,15 +49,15 @@
 
         if (isset($filme)){
             echo '<br>';
-            echo $filme['titulo'];
+            echo 'Titulo: ' .$filme['titulo'];
             echo '<br>';
-            echo $filme['sinopse'];
+            echo 'Sinopse: ' .$filme['sinopse'];
             echo '<br>';
-            echo $filme['idioma'];
+            echo 'Idioma: ' .$filme['idioma'];
             echo '<br>';
-            echo $filme['data_lancamento'];
+            echo 'Data de Lançamento: ' .$filme['data_lancamento'];
             echo '<br>';
-            echo $filme['quantidade'];
+            echo 'Quantidade: ' .$filme['quantidade'];
             echo '<br>';
         }
         else{
@@ -65,5 +65,7 @@
 
         }
     ?>
+    <br>
+    <a href="filmes_edit.php">Editar Filme</a>
     </body>
     </html>
