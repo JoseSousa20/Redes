@@ -63,6 +63,7 @@
             echo $filme['data_lancamento'];
             echo '<br><br>'; 
             echo '<a href="filmes_edit.php?filme='.$filme['id_filme']. '">Editar</a>';
+            echo '<br>';
             echo '<a href="filmes_delete.php?filme='.$filme['id_filme'].'">Eliminar Livro</a>';
         }
         else{
