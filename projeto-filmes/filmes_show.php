@@ -1,9 +1,9 @@
-<?php
+<?php 
     if($_SERVER['REQUEST_METHOD']=="GET"){
+        if(!isset($_GET['filme']) || !is_numeric($_GET['filme'])){
 
-        if(!isset($_GET['filme'])|| !is_numeric($_GET['filme'])){
-            echo '<script>alert("Erro ao abrir livro");</script>';
-            echo 'Aguarde um momento.A reencaminhar página';
+            echo '<script>alert("Erro ao abirir filme");</script>';
+            echo 'Aguarde um momento.A reencaminhar pagina';
             header("refresh:5; url=index.php");
             exit();
         }
@@ -11,13 +11,14 @@
         $con=new mysqli("localhost","root","","filmes");
 
         if($con->connect_error!=0){
-            echo 'Ocorreu um erro no acesso à base de dados.<br>'.$con->connect_error;
-            exit;
+
+            echo 'Ocorreu um erro no acesso a base de dados <br>'.$con->connect_error;
+            exit();
         }
         else{
-            $sql = 'select * from filmes where id_filme = ?';
-            $stm = $con->prepare( $sql);
-            if ($stm!=false){
+            $sql='select * from filmes where id_filme=?';
+            $stm=$con->prepare($sql);
+            if($stm!=false){
                 $stm->bind_param('i',$idFilme);
                 $stm->execute();
                 $res=$stm->get_result();
@@ -27,45 +28,46 @@
             else{
                 echo '<br>';
                 echo ($con->error);
-                echo '<br>';
-                echo "Aguarde um momento. A reencaminhar página";
-                echo '<br>';
+                echo'<br>';
+                echo"Aguarde um momento.A reencaminhar pagina";
+                echo'<br>';
                 header("refresh:5; url=index.php");
             }
         }
     }
 ?>
-
     <!DOCTYPE html>
     <html>
     <head>
-    <meta charset="ISO-8859-1">
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>Detalhes</title>
-    </head>
     <body>
     <h1>Detalhes do filme</h1>
-    <?php
 
-        if (isset($filme)){
-            echo '<br>';
-            echo 'Titulo: ' .$filme['titulo'];
-            echo '<br>';
-            echo 'Sinopse: ' .$filme['sinopse'];
-            echo '<br>';
-            echo 'Idioma: ' .$filme['idioma'];
-            echo '<br>';
-            echo 'Data de Lançamento: ' .$filme['data_lancamento'];
-            echo '<br>';
-            echo 'Quantidade: ' .$filme['quantidade'];
-            echo '<br>';
+    <?php
+        if(isset($filme)){
+            echo '<br><br>';
+            echo "Filme: ";
+            echo $filme['titulo'];
+            echo '<br><br>';
+            echo "Sinopse: ";
+            echo $filme['sinopse'];
+            echo '<br><br>';
+            echo "Quantidade: ";
+            echo $filme['quantidade'];
+            echo '<br><br>';
+            echo "Idioma: ";
+            echo $filme['idioma'];
+            echo '<br><br>';
+            echo "Data Lançamento: ";
+            echo $filme['data_lancamento'];
+            echo '<br><br>'; 
+            echo '<a href="filmes_edit.php?filme='.$filme['id_filme']. '">Editar</a>';
         }
         else{
-            echo '<h2>Parece que o filme selecionado não exixte.<br>Confirme a susa seleção.</h2>';
-
+            echo '<h2>Parece que o filme selecionado nao exite</h2>';
         }
+       
     ?>
-    <br>
-    <a href="filmes_edit.php">Editar Filme</a>
     </body>
     </html>
