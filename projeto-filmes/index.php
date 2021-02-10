@@ -27,8 +27,11 @@
             $stm->close();
         ?>
         <br>
-        <a href="filmes_create.php">Adicionar Filmes</a>
-<br>
+        <a href="filmes_create.php">Adicionar Filmes</a><br>
+        <a href="login.php">Login</a><br>
+        <a href="register.php">Register</a><br>
+        <a href="lista.php">Listagem de utilizadores</a><br>
+        
     </body>
     </html>
 

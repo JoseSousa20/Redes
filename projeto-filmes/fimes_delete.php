@@ -14,7 +14,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
             $stm->bind_param("i",$idFilme);
             $stm->execute();
             $stm->close();
-            echo ("<script>alert('Livro eliminado com sucesso');</script>");
+            echo ("<script>alert('Filme eliminado com sucesso');</script>");
             echo 'Aguarde um momento. A reencaminar página';
             header("refresh:5; url=index.php");
         }

@@ -2,7 +2,6 @@
 	session_start();
 	$_SESSION['login']="incorreto";
 	header("refresh:5;url=index.php");
-	session_start();
 	if(!isset($_SESSION['login'])){
 		$_SESSION['login']="incorreto";
 	}
@@ -10,6 +9,6 @@
 
 	}
 	else{
-		echo'Login necessario<a href="login.php">login</a>';
+		echo'Logout';
 		header("refresh:2;url=login.php");
 	}

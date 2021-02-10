@@ -64,12 +64,12 @@
             echo '<br><br>'; 
             echo '<a href="filmes_edit.php?filme='.$filme['id_filme']. '">Editar</a>';
             echo '<br>';
-            echo '<a href="filmes_delete.php?filme='.$filme['id_filme'].'">Eliminar Livro</a>';
+            echo '<a href="filmes_delete.php?filme='.$filme['id_filme'].'">Eliminar Filme</a>';
         }
         else{
             echo '<h2>Parece que o filme selecionado nao exite</h2>';
         }
-       
+            
     ?>
     </body>
     </html>

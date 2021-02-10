@@ -1,5 +1,5 @@
 <?php
-if($_SERVER['REQUEST_METHOD']=="GET"){
+    if($_SERVER['REQUEST_METHOD']=="GET"){
 
     if(isset($_GET['filme']) && is_numeric($_GET['filme'])){
         $idFilme = $_GET['filme'];
@@ -16,7 +16,7 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
             $stm->bind_param("i",$idFilme);
             $stm->execute();
             $res=$stm->get_result();
-            $filme = $res->fetch_assoc();
+            $livro = $res->fetch_assoc();
             $stm->close();
         }
     
@@ -38,7 +38,6 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
         <input type="submit" name="enviar"><br>
     </form>
 </body>
-</html>
 <?php
  }
  else{
@@ -46,4 +45,4 @@ if($_SERVER['REQUEST_METHOD']=="GET"){
      header("refresh:5; url=index.php");
  }
 }
-?>
+

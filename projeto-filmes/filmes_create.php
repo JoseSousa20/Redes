@@ -45,7 +45,7 @@
                 $stm->execute();
                 $stm->close();
                 
-                echo '<script>alert("Livro adicionado com sucesso");</script>';
+                echo '<script>alert("Filme adicionado com sucesso");</script>';
                 echo 'Aguarde um momento. A reencaminhar página';
                 header("refresh:5; url=index.php");
             }
