@@ -1,9 +1,11 @@
 <?php
     session_start();
     if($_SERVER['REQUEST_METHOD']=="POST"){
+        $nome = $_POST['nome'];
         $utilizador = $_POST['user_name'];
+        $email = $_POST['email'];
         $password = $_POST['password'];
-        $passwordencriptada = password_hash($password, PASSWORD_DEFAULT);
+        $password_encriptada=password_hash($password, PASSWORD_DEFAULT);
         $con = new mysqli("localhost","root","","filmes");
 
         if($con->connect_errno!=0){
@@ -11,10 +13,10 @@
             exit;
         }
         else{
-            $sql = "insert into utilizadores(user_name,password) values(?,?)";
+            $sql = "insert into utilizadores(nome,user_name,email,password) values(?,?,?,?)";
             $stm = $con->prepare($sql);
             if($stm!=false){
-                $stm->bind_param("ss",$utilizador,$passwordencriptada);
+                $stm->bind_param("ssss",$nome,$utilizador,$email,$password_encriptada);
                 $stm->execute();
                 $stm->close();
                 echo '<script>alert("Utilizador adicionado com sucesso");</script>';
