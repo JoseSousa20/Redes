@@ -27,7 +27,7 @@
 
             $stm=$con->prepare($sql);
             if($stm!=false){
-                $stm->bind_param("ssi",$user,$idUser,$email);
+                $stm->bind_param("ssi",$user,$email,$idUser);
                 $stm->execute();
                 $stm->close();
                 echo '<script>alert("User alterado com sucesso!!");</script>';

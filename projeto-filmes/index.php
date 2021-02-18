@@ -37,6 +37,7 @@
         }
         $stm->close();
     ?>
+    <a href="lista_atores.php">Atores</a><br>
     <a href="filmes_create.php">Adicionar livros</a><br>
     <a href="login.php">Login</a><br>
     <a href="register.php">Register</a><br>
