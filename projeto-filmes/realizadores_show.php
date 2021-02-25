@@ -62,11 +62,10 @@ if($_SESSION['login']=="correto" && isset($_SESSION['login'])){
     }
     echo '<a href="realizadores_edit.php?realizador='.$realizador['id_realizador'].'">Editar</a>';
     echo "<br>";
-    echo '<a href="realizadores_delete.php?realizador='.$realizador['id_realizador'].'">Eleminar</a>'; 
+    echo '<a href="realizadores_delete.php?realizador='.$realizador['id_realizador'].'">Eliminar</a>'; 
 ?>
 <br>
-<br>
-<button><a href="index.php">Index</a></button>
+<a href="index.php">Index</a>
 
 </body>
 </html>

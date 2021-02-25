@@ -1,4 +1,5 @@
 <?php
+include "css.php";
 if($_SERVER['REQUEST_METHOD']=="GET"){
 
     if(isset($_GET['ator']) && is_numeric($_GET['ator'])){
