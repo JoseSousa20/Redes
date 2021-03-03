@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 26-Fev-2021 às 19:24
+-- Tempo de geração: 03-Mar-2021 às 11:46
 -- Versão do servidor: 10.4.17-MariaDB
 -- versão do PHP: 8.0.0
 
@@ -35,6 +35,13 @@ CREATE TABLE `artista` (
   `id_festival` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `artista`
+--
+
+INSERT INTO `artista` (`id_artista`, `nome`, `data_nascimento`, `nacionalidade`, `id_festival`) VALUES
+(1, 'David Guetta', '1967-11-07', 'Francês', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -46,15 +53,16 @@ CREATE TABLE `festivais` (
   `nome` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `tipo` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `data` date DEFAULT NULL,
-  `local` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL
+  `local` varchar(50) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descricao` varchar(500) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `festivais`
 --
 
-INSERT INTO `festivais` (`id_festival`, `nome`, `tipo`, `data`, `local`) VALUES
-(1, 'Tomorrowland', 'Musica', '2021-06-10', 'Belgica');
+INSERT INTO `festivais` (`id_festival`, `nome`, `tipo`, `data`, `local`, `descricao`) VALUES
+(1, 'Tomorrowland', 'Musica', '2021-06-10', 'Belgica', 'Tomorrowland é um festival de música realizado anualmente. Sua edição original é realizada em Boom na Bélgica, cidade com menos de 20 mil habitantes, no distrito de Antuérpia. A edição brasileira foi anunciada em 20 de julho de 2014, e foi realizada na cidade de Itu, São Paulo, até 2016. Nos Estados Unidos, contava com outro nome, TomorrowWorld. Sendo a edição norte-americana realizada, até 2015, na cidade de Atlanta, Geórgia. Em 2019, o festival teve sua primeira edição de Inverno, na França.');
 
 -- --------------------------------------------------------
 
@@ -100,7 +108,7 @@ ALTER TABLE `utilizadores`
 -- AUTO_INCREMENT de tabela `artista`
 --
 ALTER TABLE `artista`
-  MODIFY `id_artista` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_artista` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `festivais`

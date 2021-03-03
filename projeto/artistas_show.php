@@ -1,13 +1,13 @@
 <?php 
     if($_SERVER['REQUEST_METHOD']=="GET"){
-        if(!isset($_GET['festival']) || !is_numeric($_GET['festival'])){
+        if(!isset($_GET['artista']) || !is_numeric($_GET['artista'])){
 
-            echo '<script>alert("Erro ao abrir festival");</script>';
+            echo '<script>alert("Erro ao abrir artista");</script>';
             echo 'Aguarde um momento.A reencaminhar pagina';
             header("refresh:5; url=index.php");
             exit();
         }
-        $idFestival=$_GET['festival'];
+        $idArtista=$_GET['artista'];
         $con=new mysqli("localhost","root","","festival");
 
         if($con->connect_error!=0){
@@ -16,13 +16,13 @@
             exit();
         }
         else{
-            $sql='select * from festivais where id_festival=?';
+            $sql='select * from artista where id_artista=?';
             $stm=$con->prepare($sql);
             if($stm!=false){
-                $stm->bind_param('i',$idFestival);
+                $stm->bind_param('i',$idArtista);
                 $stm->execute();
                 $res=$stm->get_result();
-                $festival=$res->fetch_assoc();
+                $artista=$res->fetch_assoc();
                 $stm->close();
             }
             else{
@@ -42,29 +42,23 @@
     <meta charset="utf-8">
     <title>Detalhes</title>
     <body>
-    <h2>Detalhes do festival</h2>
+    <h2>Detalhes do Artista</h2>
 
     <?php
-        if(isset($festival)){
+        if(isset($artista)){
             echo '<br>';
             echo "<b>Nome:</b> ";
-            echo $festival['nome'];
+            echo $artista['nome'];
             echo '<br><br>';
-            echo "<b>Tipo de festival:</b> ";
-            echo $festival['tipo'];
+            echo "<b>Data de Nascimento:</b> ";
+            echo $artista['data_nascimento'];
             echo '<br><br>';
-            echo "<b>Data do Festival:</b> ";
-            echo $festival['data'];
+            echo "<b>Nacionalidade:</b> ";
+            echo $artista['nacionalidade'];
             echo '<br><br>';
-            echo "<b>Local:</b> ";
-            echo $festival['local'];
-            echo '<br><br>';
-            echo "<b>Descrição:</b> ";
-            echo $festival['descricao'];
-            echo '<br><br>';
-            echo '<button><a href="festival_edit.php?festival='.$festival['id_festival']. '">Editar</a></button>';
-            echo ' ';
-            echo '<button><a href="festival_delete.php?festival='.$festival['id_festival'].'">Eliminar</a></button>';
+            echo '<button><a href="artistas_edit.php?artista='.$artista['id_artista']. '">Editar</a></button>';
+            echo '<br>';
+            echo '<button><a href="artistas_delete.php?artista='.$artista['id_artista'].'">Eliminar</a></button>';
         }
         else{
             echo '<h2>Parece que o festival selecionado não existe</h2>';
