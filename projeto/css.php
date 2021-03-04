@@ -11,6 +11,6 @@
     <script src='bootstrap.min.js'></script>
     <script src='jquery-3.5.1.min.js'></script>
 </head>
-<body>
+<body >
 </body>
 </html>

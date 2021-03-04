@@ -27,7 +27,7 @@
         $stm->close();
     ?>
     <br>
-    <button><a href="artistas_create.php">Adicionar</a></button><br>
+    <button><a href="artistas_create.php">Adicionar</a></button>
     <button><a href="index.php">Index</a></button>
 <br>
 </body>

@@ -1,13 +1,14 @@
 <?php 
+    session_start();
     if($_SERVER['REQUEST_METHOD']=="GET"){
-        if(!isset($_GET['artista']) || !is_numeric($_GET['artista'])){
+        if(!isset($_GET['user']) || !is_numeric($_GET['user'])){
 
-            echo '<script>alert("Erro ao abrir artista");</script>';
+            echo '<script>alert("Erro ao abrir User");</script>';
             echo 'Aguarde um momento.A reencaminhar pagina';
             header("refresh:5; url=index.php");
             exit();
         }
-        $idArtista=$_GET['artista'];
+        $idUser=$_GET['user'];
         $con=new mysqli("localhost","root","","festival");
 
         if($con->connect_error!=0){
@@ -16,13 +17,13 @@
             exit();
         }
         else{
-            $sql='select * from artista where id_artista=?';
+            $sql='select * from utilizadores where id=?';
             $stm=$con->prepare($sql);
             if($stm!=false){
-                $stm->bind_param('i',$idArtista);
+                $stm->bind_param('i',$idUser);
                 $stm->execute();
                 $res=$stm->get_result();
-                $artista=$res->fetch_assoc();
+                $user=$res->fetch_assoc();
                 $stm->close();
             }
             else{
@@ -42,26 +43,26 @@
     <meta charset="utf-8">
     <title>Detalhes</title>
     <body>
-    <h2>Detalhes do Artista</h2>
+    <h2>Detalhes do Utilizadores</h2>
 
     <?php
-        if(isset($artista)){
+        if(isset($user)){
             echo '<br>';
             echo "<b>Nome:</b> ";
-            echo $artista['nome'];
+            echo $user['nome'];
             echo '<br><br>';
-            echo "<b>Data de Nascimento:</b> ";
-            echo $artista['data_nascimento'];
+            echo "<b>Nome User:</b> ";
+            echo $user['user_name'];
             echo '<br><br>';
-            echo "<b>Nacionalidade:</b> ";
-            echo $artista['nacionalidade'];
+            echo "<b>Email:</b> ";
+            echo $user['email'];
             echo '<br><br>';
-            echo '<button><a href="artistas_edit.php?artista='.$artista['id_artista']. '">Editar</a></button>';
-            echo ' ';
-            echo '<button><a href="artistas_delete.php?artista='.$artista['id_artista'].'">Eliminar</a></button>';
+            if($_SESSION['login'] =="correto" && $_SESSION['login']){
+            echo '<button><a href="utilizador_edit.php?user='.$user['id'].'">Editar</a></button>';
+            }
         }
         else{
-            echo '<h2>Parece que o festival selecionado não existe</h2>';
+            echo '<h2>Parece que o user selecionado não existe</h2>';
         }
             
     ?>

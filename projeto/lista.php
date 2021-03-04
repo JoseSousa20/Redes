@@ -19,6 +19,7 @@
         $stm->execute();
         $res=$stm->get_result();
         while($resultado = $res->fetch_assoc()){
+            echo '<a href="utilizador_show.php?user='.$resultado['id'].'">';
             echo $resultado['user_name'];
             echo '<br>';
         }
