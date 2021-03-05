@@ -1,4 +1,5 @@
 <?php
+    
     $con = new mysqli("localhost","root","","festival");
     if($con->connect_errno!=0){
         echo "Ocorreu um erro no acesso à base de dados ".$con->connect_error;
@@ -20,9 +21,9 @@
         $res=$stm->get_result();
         while($resultado = $res->fetch_assoc()){
             echo '<a href="artistas_show.php?artista='.$resultado['id_artista'].'">';
-            echo $resultado['nome'];
+            echo '<h4>'.$resultado['nome'].'</h4>';
             echo '</a>';
-            echo '<br>';
+          
         }
         $stm->close();
     ?>

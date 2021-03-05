@@ -21,13 +21,13 @@
         $res=$stm->get_result();
         while($resultado = $res->fetch_assoc()){
             echo '<a href="festival_show.php?festival='.$resultado['id_festival'].'">';
-            echo '<h5>'.$resultado['nome'].'</h5>';
+            echo '<h4>'.$resultado['nome'].'</h4>';
             echo '</a>';
         }
         $stm->close();
     ?>
     <br>
-    <button><a href="festival_create.php">Adicionar</a></button><br>
+    <button><a href="festival_create.php">Adicionar</a></button>
     <button><a href="index.php">Index</a></button>
 <br>
 </body>
