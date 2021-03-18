@@ -6,7 +6,7 @@ $b=$_GET['b'];
 $c=$_GET['c'];
 $d=$_GET['d'];
 
-//Classes 
+
 	if($a==127){
 		echo "Endereço reservado a loopback ou localhost";
 		echo "<br>";
@@ -33,8 +33,7 @@ $d=$_GET['d'];
 
 
 echo "<br>";
-//Tipos de Ips 
-//Privados
+
 if($a==10){
 	echo "IP Privado";
 }
@@ -80,10 +79,4 @@ elseif($d==0 && $d==255){
 else{
 	echo "IP publico";
 }
-
-
-
-
-
-
 ?>
